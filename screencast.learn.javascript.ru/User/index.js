@@ -1,12 +1,14 @@
-let phrases = require('./ru.json');
+let db = require('db');
+let log = require('logger')(module);
+
 class User {
   constructor(user) {
     this.name = user;
   }
 
   hello(who) {
-    console.log(`${phrases.hello} ${who.name}`);
+    log(`${db.getPhrase('hello')} ${who.name}`);
   }
 }
 
-exports.User = User;
+module.exports = User;
